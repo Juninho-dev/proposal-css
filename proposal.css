@@ -1,0 +1,627 @@
+
+    :root {
+      --cor1: #ed5565;
+      --cor2: #0a1733;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #FAFAFA;
+      color: var(--dark);
+      font: 12pt;
+      font-family: 'Montserrat', sans-serif;
+      color: #505050;
+      font-weight: 700;
+    }
+
+    * {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+
+    .svgcor1 {
+      fill: var(--cor1);
+    }
+
+    .svgcor2 {
+      fill: var(--cor2);
+    }
+
+    #opcoes {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      text-align: center;
+      z-index: 999;
+    }
+
+    #opcoes .shadow {
+      padding: 20px 15px;
+      border-radius: 100px;
+      background-color: #FFF;
+    }
+
+    #opcoes .btImprimir {
+      background-color: var(--cor1);
+      padding: 15px;
+      color: #FFF;
+      border-radius: 40px;
+      cursor: pointer;
+    }
+
+    #opcoes .btImprimir img {
+      width: 30px;
+    }
+
+    #opcoes .c1 {
+      position: relative;
+    }
+
+    #opcoes .c1 span {
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      background-color: var(--cor1);
+      display: inline-block;
+    }
+
+    #opcoes .c2 {
+      position: relative;
+    }
+
+    #opcoes .c2 span {
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      background-color: var(--cor2);
+      display: inline-block;
+    }
+
+    input[type=color] {
+      position: absolute;
+      left: calc(50% - 10px);
+      top: calc(50% - 10px);
+      opacity: .0;
+    }
+
+    #opcoes .linha {
+      border-top: 1px solid #CCC;
+      margin: 10px 0px;
+    }
+
+    #opcoes .modelo {
+      border: 1px solid var(--cor1);
+      color: var(--cor1);
+      width: 25px;
+      height: 25px;
+      font-size: 12px;
+      line-height: 24px;
+      border-radius: 100px;
+      margin-bottom: 5px;
+      text-align: center;
+      text-decoration: inherit;
+      transition: all .5s;
+    }
+
+    #opcoes .modelo:hover,
+    #opcoes .modelo.ativo {
+      background-color: var(--cor1);
+      color: #FFF;
+    }
+
+    .observacoes {
+      font-size: 12px;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 20mm;
+      margin: 10mm auto;
+      border: 1px #D3D3D3 solid;
+      border-radius: 5px;
+      background: white;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .subpage {
+      padding: .5cm;
+      height: 257mm;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+
+      html,
+      body {
+        width: 210mm;
+        height: 297mm;
+      }
+
+      .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+        position: inherit;
+      }
+
+      .subpage {
+        position: relative;
+      }
+
+      .subpage .logo {
+        height: 50pt;
+        position: absolute;
+        right: -50px !important;
+        top: -50px !important;
+        z-index: 999999999;
+      }
+
+      #opcoes {
+        display: none;
+      }
+    }
+
+    /* 
+------------
+------------
+PÃ¡ginas
+------------
+------------
+*/
+    .logo {
+      height: 50pt;
+      position: absolute;
+      right: 15pt;
+      top: 15pt;
+    }
+
+    /* 
+------------------------
+------------------------
+PÃ¡gina 1
+------------------------
+------------------------
+*/
+    .page1 .nome {
+      font-size: 50px;
+      line-height: 50px;
+      text-transform: uppercase;
+    }
+
+    .page1 .subtituloCapa {
+      font-size: 60px;
+      padding-right: 80px;
+      font-weight: 900;
+      line-height: 65px;
+      margin: 20px 0px;
+      color: var(--cor2);
+    }
+
+    .page1 .fundo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page1 .fundo svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .page1 .fundo svg .cor1,
+    .page2 .fundo svg .cor1,
+    .page3 .fundo svg .cor1,
+    .page4 .fundo svg .cor1,
+    .page5 .fundo svg .cor1,
+    .page6 .fundo svg .cor1,
+    .page7 .fundo svg .cor1,
+    .page8 .fundo svg .cor1 {
+      fill: var(--cor1);
+    }
+
+    /* 
+------------------------
+------------------------
+PÃ¡gina 2
+------------------------
+------------------------
+*/
+    .page2 {
+      font-size: 12px;
+    }
+
+    .page2 .subpage {
+      padding-left: 70px;
+    }
+
+    .page2 .fundo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page2 .titulo {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .page2 .subtituloAmarelo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cor1);
+    }
+
+    .page2 svg {
+      width: 150px;
+    }
+
+    /* 
+------------------------
+------------------------
+PÃ¡gina 3 
+------------------------
+------------------------
+*/
+    .page3 .fundo {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page3 .topo {
+      border-top: 3px solid var(--cor2);
+      border-bottom: 1px solid var(--cor2);
+      padding: 20px 0px;
+      font-size: 14px;
+    }
+
+    .page3 .valorAVista,
+    .page3 .valorEconomiaMediaMensal {
+      color: var(--cor1);
+      font-size: 40px;
+      line-height: 40px;
+      font-weight: 900;
+    }
+
+    .page3 .potencia,
+    .page3 .valorPayback,
+    .page3 .valorFinanciamento {
+      color: var(--cor1);
+      font-size: 30px;
+      line-height: 30px;
+      font-weight: 900;
+    }
+
+    .page3 .destaque2 {
+      color: var(--cor1);
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: 900;
+    }
+
+    .page3 svg {
+      width: 150px;
+    }
+
+    /* 
+------------------------
+------------------------
+PÃ¡gina 4
+------------------------
+------------------------
+*/
+    .page4 .fundo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page4 .titulo {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .page4 .tabelaFluxoCaixa {
+      width: 100%;
+      font-size: 13px;
+    }
+
+    .page4 .tabelaFluxoCaixa thead {
+      background-color: var(--cor1);
+      color: #FFF;
+    }
+
+    .page4 .tabelaFluxoCaixa .ano {
+      width: 10%;
+    }
+
+    .page4 .tabelaFluxoCaixa td {
+      padding: 5px;
+    }
+
+    .page4 .tabelaFluxoCaixa .fluxoCaixa,
+    .page4 .tabelaFluxoCaixa .caixaDescontado,
+    .page4 .tabelaFluxoCaixa .saldo {
+      width: 30%;
+    }
+
+    .page4 .tabelaFluxoCaixa tr:nth-child(even) {
+      background-color: rgb(10 23 51 / 10%);
+    }
+
+    .page4 svg {
+      width: 150px;
+    }
+
+    /* 
+------------------------
+------------------------
+PÃ¡gina 5 
+------------------------
+------------------------
+*/
+    .page5 .fundo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page5 .titulo {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .page5 .bloco {
+      display: flex;
+      align-items: center;
+    }
+
+    .page5 .bloco .img {
+      margin-right: 10px;
+      margin-top: 30px;
+      z-index: 2;
+    }
+
+    .page5 .bloco .img svg {
+      width: 80px;
+    }
+
+    .page5 .bloco .infs {
+      padding: 5px 40px 5px 40px;
+      margin-top: 30px;
+      margin-left: -33px;
+      border-radius: 10px;
+      border: 3px solid var(--cor2);
+      z-index: 1;
+    }
+
+    .page5 .subtituloAzul {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      margin: 50px 0px 20px;
+    }
+
+    .page5 svg {
+      width: 150px;
+    }
+
+    /* 
+------------------------
+------------------------
+PÃ¡gina 6
+------------------------
+------------------------
+*/
+    .page6 .fundo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page6 .titulo {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .page6 svg {
+      width: 150px;
+    }
+
+    /* 
+------------------------
+------------------------
+PÃ¡gina 7
+------------------------
+------------------------
+*/
+    .page7 .fundo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page7 .titulo {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .page7 svg {
+      width: 150px;
+    }
+
+    /* 
+------------------------
+------------------------
+PÃ¡gina 8
+------------------------
+------------------------
+*/
+    .page8 .fundo {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .page8 .titulo {
+      font-size: 30px;
+    }
+
+    .page8 .data {
+      text-align: center;
+    }
+
+    .page8 .formadepagamento {
+      font-size: 24px;
+    }
+
+    .page8 .formadepagamento .titulo {
+      border-bottom: 2px solid var(--cor1);
+    }
+
+    .page8 .formadepagamento .check {
+      width: 25px;
+      height: 25px;
+      border: 3px solid var(--cor1);
+    }
+
+    .page8 .formadepagamento .tipo,
+    .page8 .formadepagamento .valorAVista {
+      font-size: 20px;
+    }
+
+    .page8 .tracejado {
+      border-bottom: 1px solid var(--cor1);
+    }
+
+    .page8 .nomes {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .page8 svg {
+      width: 150px;
+    }
+
+    /* Sticky footer styles
+-------------------------------------------------- */
+    .footer {
+      position: absolute;
+      bottom: 20mm;
+      font-size: 10pt;
+      left: 105px;
+      z-index: 2;
+    }
+
+
+    /* Custom page CSS
+ * Not required for template or sticky footer method.
+ * -------------------------------------------------- */
+
+    .container {
+      width: auto;
+      max-width: 680px;
+      padding: 0 15px;
+    }
+
+    .container .text-muted {
+      margin: 20px 0;
+    }
+    
+    .container-fluid {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .text-primary {
+      color: #0d6efd !important;
+    }
+
+    .h-100 {
+      height: 100%;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: calc(0 * -1);
+      margin-right: calc(1.5rem * -.5);
+      margin-left: calc(1.5rem * -.5);
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    .align-items-center {
+      align-items: center;
+    }
+
+    .row>* {
+      flex-shrink: 0;
+      width: 100%;
+      max-width: 100%;
+      padding-right: calc(1.5rem * .5);
+      padding-left: calc(1.5rem * .5);
+      margin-top: var(0);
+    }
+
+    .col-6 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+
+    .text-end {
+      text-align: right !important;
+    }
+
+    .ms-4 {
+      margin-left: 1.5rem !important;
+    }
+
+    .text-center {
+      text-align: center !important;
+    }
+
+    .mt-5 {
+      margin-top: 3rem !important;
+    }
+
+    .mt-4 {
+      margin-top: 1.5rem !important;
+    }
+
+    .ms-2 {
+      margin-left: 0.5rem !important;
+    }
